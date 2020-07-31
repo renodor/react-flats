@@ -17,7 +17,8 @@ class FlatList extends Component {
             name={flat.name}
             imageUrl={flat.imageUrl}
             lat={flat.lat}
-            lng={flat.long} />
+            lng={flat.long}
+            selectedFlat={selectFlat} />
         })
       }
       </div>
