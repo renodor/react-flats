@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import FlatList from './flat_list';
-import Map from './map';
+import SimpleMap from './map';
 
 class App extends Component {
 
@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <div>
         <FlatList />
-        <Map />
+        <SimpleMap />
       </div>
     );
   }

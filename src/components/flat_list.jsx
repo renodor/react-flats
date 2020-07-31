@@ -15,7 +15,9 @@ class FlatList extends Component {
             price={flat.price}
             priceCurrency={flat.priceCurrency}
             name={flat.name}
-            imageUrl={flat.imageUrl} />
+            imageUrl={flat.imageUrl}
+            lat={flat.lat}
+            lng={flat.long} />
         })
       }
       </div>
