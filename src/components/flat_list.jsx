@@ -8,7 +8,7 @@ class FlatList extends Component {
 
   render() {
     return (
-      <div className="gif-list">
+      <div className="flat-list">
         <Flat />
       </div>
     );
