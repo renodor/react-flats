@@ -14,14 +14,15 @@ class App extends Component {
     };
   }
 
-  selectFlat = (id) => {
-    this.setState({ selectedFlat: id });
+  selectFlat = (lat, lng) => {
+    console.log(lat);
+    console.log(lng);
   }
 
   render() {
     return (
       <div>
-        <FlatList selectedFlat={this.selectedFlat}/>
+        <FlatList selectFlat={this.selectFlat} />
         <SimpleMap />
       </div>
     );
