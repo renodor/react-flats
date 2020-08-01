@@ -10,20 +10,23 @@ class App extends Component {
 
 
     this.state = {
-      selectedFlat: null
+      markerLat: 43.1487189,
+      markerLng: 5.7420883
     };
   }
 
   selectFlat = (lat, lng) => {
-    console.log(lat);
-    console.log(lng);
+    this.setState({
+      markerLat: lat,
+      markerLng: lng
+    });
   }
 
   render() {
     return (
       <div>
         <FlatList selectFlat={this.selectFlat} />
-        <SimpleMap />
+        <SimpleMap markerLat={this.state.markerLat} markerLng={this.state.markerLng} />
       </div>
     );
   }
