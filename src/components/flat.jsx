@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 
 class Flat extends Component {
-  handleClick = () => {
+
+  handleClick = (event) => {
     this.props.selectFlat(this.props.lat, this.props.lng);
+    this.props.activeFlat(this.props.id);
   }
 
   render() {
@@ -12,7 +14,7 @@ class Flat extends Component {
 
 
     return (
-      <div className="card" style={flatStyle} onClick={this.handleClick}>
+      <div className={this.props.currentActiveFlatId == this.props.id ? 'card active' : 'card'} style={flatStyle} onClick={this.handleClick}>
         <div className="card-category">{this.props.price} {this.props.priceCurrency}</div>
         <div className="card-description">
           <h2>{this.props.name}</h2>
