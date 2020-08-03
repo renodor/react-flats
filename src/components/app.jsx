@@ -11,9 +11,12 @@ class App extends Component {
     super(props);
 
     this.state = {
-      selectedFlat: flat[0],
-      flats
+      selectedFlat: flats[0],
     };
+  }
+
+  selectFlat = (index) => {
+    this.setState({ selectedFlat: flats[index] });
   }
 
   center() {
@@ -23,15 +26,14 @@ class App extends Component {
     };
   }
 
-  selectFlat = (index) => {
-    this.setState({ selectedFlat: flats[index] });
-  }
-
   render() {
     return (
       <div>
-        <FlatList selectFlat={this.selectFlat} />
-        <div className="map-container" style={{ height: '100vh' }}>
+        <FlatList
+          flats={flats}
+          selectFlat={this.selectFlat}
+          selectedFlat={this.state.selectedFlat} />
+        <div className="map-container">
           <GoogleMapReact
             bootstrapURLKeys={{ key: 'AIzaSyA9eczdhAXBjQXg_Y5E8niGj9bVsr237OM' }}
             defaultCenter={this.center()}

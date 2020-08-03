@@ -1,46 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import Flat from './flat';
 
-import flats from '../../data/flats';
-
-class FlatList extends Component {
-
-  constructor(props) {
-    super(props);
-
-
-    this.state = {
-      currentActiveFlatId: null
-    };
-  }
-
-  activeFlat = (id) => {
-    this.setState({ currentActiveFlatId: id });
-  }
-
-  render() {
-    return (
-      <div className="flat-list" onClick={this.handleClick}>
-        {flats.map((flat, i) => {
-          return <Flat
-            key={i}
-            id={i}
-            price={flat.price}
-            priceCurrency={flat.priceCurrency}
-            name={flat.name}
-            imageUrl={flat.imageUrl}
-            lat={flat.lat}
-            lng={flat.lng}
-            selectFlat={this.props.selectFlat}
-            activeFlat={this.activeFlat}
-            currentActiveFlatId={this.state.currentActiveFlatId}
-          />;
-        })
-      }
-      </div>
-    );
-  }
-}
+const FlatList = (props) => {
+  return (
+    <div className="flat-list">
+      {props.flats.map((flat, index) => {
+        return (
+          <Flat
+            flat={flat}
+            key={flat.lat}
+            selectFlat={props.selectFlat}
+            selectedFlat={props.selectedFlat.name === flat.name}
+            index={index}
+          />
+        );
+      })}
+    </div>
+  );
+};
 
 export default FlatList;
