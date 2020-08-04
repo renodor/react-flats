@@ -20,26 +20,29 @@ class App extends Component {
   }
 
   center() {
+    const { selectedFlat } = this.state;
     return {
-      lat: this.state.selectedFlat.lat,
-      lng: this.state.selectedFlat.lng
+      lat: selectedFlat.lat,
+      lng: selectedFlat.lng
     };
   }
 
   render() {
+    const { selectedFlat } = this.state;
     return (
       <div>
         <FlatList
           flats={flats}
           selectFlat={this.selectFlat}
-          selectedFlat={this.state.selectedFlat} />
+          selectedFlat={selectedFlat}
+        />
         <div className="map-container">
           <GoogleMapReact
             bootstrapURLKeys={{ key: 'AIzaSyA9eczdhAXBjQXg_Y5E8niGj9bVsr237OM' }}
             defaultCenter={this.center()}
             defaultZoom={12}
           >
-            <Marker lat={this.state.selectedFlat.lat} lng={this.state.selectedFlat.lng} />
+            <Marker lat={selectedFlat.lat} lng={selectedFlat.lng} />
           </GoogleMapReact>
         </div>
       </div>
