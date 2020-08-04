@@ -2,16 +2,16 @@ import React from 'react';
 
 import Flat from './flat';
 
-const FlatList = (props) => {
+const FlatList = ({ flats, selectFlat, selectedFlat }) => {
   return (
     <div className="flat-list">
-      {props.flats.map((flat, index) => {
+      {flats.map((flat, index) => {
         return (
           <Flat
             flat={flat}
             key={flat.lat}
-            selectFlat={props.selectFlat}
-            selectedFlat={props.selectedFlat.name === flat.name}
+            selectFlat={selectFlat}
+            selectedFlat={selectedFlat.name === flat.name}
             index={index}
           />
         );
